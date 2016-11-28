@@ -31,6 +31,7 @@ import uk.gov.gchq.gaffer.operation.data.EdgeSeed;
  * @see GetEdgesBySeed.Builder
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetEdges
  */
+@Deprecated
 public class GetEdgesBySeed extends GetEdges<EdgeSeed> {
     public GetEdgesBySeed() {
         super();

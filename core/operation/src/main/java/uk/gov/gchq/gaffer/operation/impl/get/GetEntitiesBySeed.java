@@ -30,6 +30,7 @@ import uk.gov.gchq.gaffer.operation.data.EntitySeed;
  * @see GetEntitiesBySeed.Builder
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetEntities
  */
+@Deprecated
 public class GetEntitiesBySeed extends GetEntities<EntitySeed> {
     public GetEntitiesBySeed() {
         super();

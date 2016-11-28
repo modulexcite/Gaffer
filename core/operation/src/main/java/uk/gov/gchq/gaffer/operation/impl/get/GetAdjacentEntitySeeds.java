@@ -31,6 +31,7 @@ import uk.gov.gchq.gaffer.operation.data.EntitySeed;
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetAdjacentEntitySeeds.Builder
  * @see uk.gov.gchq.gaffer.operation.GetOperation
  */
+@Deprecated
 public class GetAdjacentEntitySeeds extends AbstractGetIterableElementsOperation<EntitySeed, EntitySeed> {
     public GetAdjacentEntitySeeds() {
     }

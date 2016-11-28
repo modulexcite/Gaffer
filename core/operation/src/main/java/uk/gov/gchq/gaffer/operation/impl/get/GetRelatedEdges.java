@@ -37,6 +37,7 @@ import uk.gov.gchq.gaffer.operation.data.ElementSeed;
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetRelatedEdges.Builder
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetEdges
  */
+@Deprecated
 public class GetRelatedEdges<ELEMENT_SEED extends ElementSeed> extends GetEdges<ELEMENT_SEED> {
     public GetRelatedEdges() {
         super();

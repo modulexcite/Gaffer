@@ -77,7 +77,7 @@ public interface IOperationService {
 
     @POST
     @Path("/get/elements/related")
-    @ApiOperation(value = "Gets related elements from the graph", response = Element.class, responseContainer = "List")
+    @Deprecated
     CloseableIterable<Element> getRelatedElements(final GetRelatedElements<ElementSeed, Element> operation);
 
     @POST
@@ -87,7 +87,7 @@ public interface IOperationService {
 
     @POST
     @Path("/get/entities/related")
-    @ApiOperation(value = "Gets related entities from the graph", response = Entity.class, responseContainer = "List")
+    @Deprecated
     CloseableIterable<Entity> getRelatedEntities(final GetRelatedEntities<ElementSeed> operation);
 
     @POST
@@ -97,12 +97,12 @@ public interface IOperationService {
 
     @POST
     @Path("/get/edges/related")
-    @ApiOperation(value = "Gets related edges from the graph", response = Edge.class, responseContainer = "List")
+    @Deprecated
     CloseableIterable<Edge> getRelatedEdges(final GetRelatedEdges<ElementSeed> operation);
 
     @POST
     @Path("/get/entitySeeds/adjacent")
-    @ApiOperation(value = "Gets adjacent entity seeds", response = EntitySeed.class, responseContainer = "List")
+    @Deprecated
     CloseableIterable<EntitySeed> getAdjacentEntitySeeds(final GetAdjacentEntitySeeds operation);
 
     @POST
