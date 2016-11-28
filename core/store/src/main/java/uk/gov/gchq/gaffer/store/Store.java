@@ -47,6 +47,7 @@ import uk.gov.gchq.gaffer.operation.impl.get.GetAllEntities;
 import uk.gov.gchq.gaffer.operation.impl.get.GetEdgesBySeed;
 import uk.gov.gchq.gaffer.operation.impl.get.GetElements;
 import uk.gov.gchq.gaffer.operation.impl.get.GetElementsBySeed;
+import uk.gov.gchq.gaffer.operation.impl.get.GetEntities;
 import uk.gov.gchq.gaffer.operation.impl.get.GetEntitiesBySeed;
 import uk.gov.gchq.gaffer.operation.impl.get.GetRelatedEdges;
 import uk.gov.gchq.gaffer.operation.impl.get.GetRelatedElements;
@@ -316,12 +317,12 @@ public abstract class Store {
     protected abstract OperationHandler<GetAllElements<Element>, CloseableIterable<Element>> getGetAllElementsHandler();
 
     /**
-     * Get this Stores implementation of the handler for {@link uk.gov.gchq.gaffer.operation.impl.get.GetAdjacentEntitySeeds}.
+     * Get this Stores implementation of the handler for {@link uk.gov.gchq.gaffer.operation.impl.get.GetEntities}.
      * All Stores must implement this.
      *
-     * @return the implementation of the handler for {@link uk.gov.gchq.gaffer.operation.impl.get.GetAdjacentEntitySeeds}
+     * @return the implementation of the handler for {@link uk.gov.gchq.gaffer.operation.impl.get.GetEntities}
      */
-    protected abstract OperationHandler<? extends GetAdjacentEntitySeeds, CloseableIterable<EntitySeed>> getAdjacentEntitySeedsHandler();
+    protected abstract OperationHandler<? extends GetEntities, CloseableIterable<EntitySeed>> getAdjacentEntitySeedsHandler();
 
     /**
      * Get this Stores implementation of the handler for {@link uk.gov.gchq.gaffer.operation.impl.add.AddElements}. All Stores must implement this.

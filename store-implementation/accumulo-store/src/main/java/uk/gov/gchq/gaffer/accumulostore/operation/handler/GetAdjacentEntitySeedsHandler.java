@@ -30,22 +30,23 @@ import uk.gov.gchq.gaffer.operation.GetOperation.IncludeEdgeType;
 import uk.gov.gchq.gaffer.operation.OperationException;
 import uk.gov.gchq.gaffer.operation.data.EntitySeed;
 import uk.gov.gchq.gaffer.operation.impl.get.GetAdjacentEntitySeeds;
+import uk.gov.gchq.gaffer.operation.impl.get.GetEntities;
 import uk.gov.gchq.gaffer.store.Context;
 import uk.gov.gchq.gaffer.store.Store;
 import uk.gov.gchq.gaffer.store.StoreException;
 import uk.gov.gchq.gaffer.store.operation.handler.OperationHandler;
 import uk.gov.gchq.gaffer.user.User;
 
-public class GetAdjacentEntitySeedsHandler implements OperationHandler<GetAdjacentEntitySeeds, CloseableIterable<EntitySeed>> {
+public class GetAdjacentEntitySeedsHandler implements OperationHandler<GetEntities<EntitySeed>, CloseableIterable<EntitySeed>> {
 
     @Override
-    public CloseableIterable<EntitySeed> doOperation(final GetAdjacentEntitySeeds operation,
+    public CloseableIterable<EntitySeed> doOperation(final GetEntities operation,
                                             final Context context, final Store store)
             throws OperationException {
         return doOperation(operation, context.getUser(), (AccumuloStore) store);
     }
 
-    public CloseableIterable<EntitySeed> doOperation(final GetAdjacentEntitySeeds operation,
+    public CloseableIterable<EntitySeed> doOperation(final GetEntities operation,
                                             final User user,
                                             final AccumuloStore store)
             throws OperationException {

@@ -32,7 +32,7 @@ import uk.gov.gchq.gaffer.operation.data.ElementSeed;
  * @param <ELEMENT_TYPE> the element return type
  * @see uk.gov.gchq.gaffer.operation.GetOperation
  */
-public abstract class GetElements<SEED_TYPE extends ElementSeed, ELEMENT_TYPE extends Element>
+public class GetElements<SEED_TYPE extends ElementSeed, ELEMENT_TYPE extends Element>
         extends AbstractGetIterableElementsOperation<SEED_TYPE, ELEMENT_TYPE> {
     public GetElements() {
         super();

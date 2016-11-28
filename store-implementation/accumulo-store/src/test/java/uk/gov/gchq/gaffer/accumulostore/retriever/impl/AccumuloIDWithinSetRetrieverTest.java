@@ -132,12 +132,12 @@ public class AccumuloIDWithinSetRetrieverTest {
         final Set<EntitySeed> seeds = new HashSet<>();
         seeds.add(AccumuloTestData.SEED_A0);
         seeds.add(AccumuloTestData.SEED_A23);
-        final GetElements<EntitySeed, ?> op = new GetRelatedElements<>(defaultView, seeds);
+        final GetElements<EntitySeed, ?> op = new GetElements<>(defaultView, seeds);
         final Set<Element> results = returnElementsFromOperation(store, op, new User(), loadIntoMemory);
         assertThat(results, IsCollectionContaining.hasItems(AccumuloTestData.EDGE_A0_A23, AccumuloTestData.A0_ENTITY, AccumuloTestData.A23_ENTITY));
 
         // Query for all edges in set {A1} - there shouldn't be any, but we will get the entity for A1
-        final GetElements<EntitySeed, ?> a1Operation = new GetRelatedElements<>(defaultView, AccumuloTestData.SEED_A1_SET);
+        final GetElements<EntitySeed, ?> a1Operation = new GetElements<>(defaultView, AccumuloTestData.SEED_A1_SET);
         final Set<Element> a1Results = returnElementsFromOperation(store, a1Operation, new User(), loadIntoMemory);
         assertEquals(1, a1Results.size());
         assertThat(a1Results, IsCollectionContaining.hasItem(AccumuloTestData.A1_ENTITY));
@@ -147,7 +147,7 @@ public class AccumuloIDWithinSetRetrieverTest {
         final Set<EntitySeed> a1A2Seeds = new HashSet<>();
         a1A2Seeds.add(AccumuloTestData.SEED_A1);
         a1A2Seeds.add(AccumuloTestData.SEED_A2);
-        final GetElements<EntitySeed, ?> a1A2Operation = new GetRelatedElements<>(defaultView, a1A2Seeds);
+        final GetElements<EntitySeed, ?> a1A2Operation = new GetElements<>(defaultView, a1A2Seeds);
         final Set<Element> a1A2Results = returnElementsFromOperation(store, a1A2Operation, new User(), loadIntoMemory);
         assertEquals(2, a1A2Results.size());
         assertThat(a1A2Results, IsCollectionContaining.hasItems(AccumuloTestData.A1_ENTITY, AccumuloTestData.A2_ENTITY));

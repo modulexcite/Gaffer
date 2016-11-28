@@ -20,7 +20,7 @@ import uk.gov.gchq.gaffer.commonutil.iterable.CloseableIterable;
 import uk.gov.gchq.gaffer.data.element.Edge;
 import uk.gov.gchq.gaffer.data.elementdefinition.view.View;
 import uk.gov.gchq.gaffer.operation.GetIterableElementsOperation;
-import uk.gov.gchq.gaffer.operation.data.ElementSeed;
+import uk.gov.gchq.gaffer.operation.data.EdgeSeed;
 
 /**
  * Restricts {@link uk.gov.gchq.gaffer.operation.impl.get.GetElements} to only return {@link uk.gov.gchq.gaffer.data.element.Edge}s.
@@ -29,18 +29,18 @@ import uk.gov.gchq.gaffer.operation.data.ElementSeed;
  * @param <SEED_TYPE> the seed seed type
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetElements
  */
-public abstract class GetEdges<SEED_TYPE extends ElementSeed> extends GetElements<SEED_TYPE, Edge> {
+public class GetEdges extends GetElements<EdgeSeed, Edge> {
     public GetEdges() {
         super();
         setIncludeEdges(IncludeEdgeType.ALL);
     }
 
-    public GetEdges(final Iterable<SEED_TYPE> seeds) {
+    public GetEdges(final Iterable<EdgeSeed> seeds) {
         super(seeds);
         setIncludeEdges(IncludeEdgeType.ALL);
     }
 
-    public GetEdges(final CloseableIterable<SEED_TYPE> seeds) {
+    public GetEdges(final CloseableIterable<EdgeSeed> seeds) {
         super(seeds);
         setIncludeEdges(IncludeEdgeType.ALL);
     }
@@ -50,17 +50,17 @@ public abstract class GetEdges<SEED_TYPE extends ElementSeed> extends GetElement
         setIncludeEdges(IncludeEdgeType.ALL);
     }
 
-    public GetEdges(final View view, final Iterable<SEED_TYPE> seeds) {
+    public GetEdges(final View view, final Iterable<EdgeSeed> seeds) {
         super(view, seeds);
         setIncludeEdges(IncludeEdgeType.ALL);
     }
 
-    public GetEdges(final View view, final CloseableIterable<SEED_TYPE> seeds) {
+    public GetEdges(final View view, final CloseableIterable<EdgeSeed> seeds) {
         super(view, seeds);
         setIncludeEdges(IncludeEdgeType.ALL);
     }
 
-    public GetEdges(final GetIterableElementsOperation<SEED_TYPE, ?> operation) {
+    public GetEdges(final GetIterableElementsOperation<EdgeSeed, ?> operation) {
         super(operation);
     }
 
@@ -85,24 +85,33 @@ public abstract class GetEdges<SEED_TYPE extends ElementSeed> extends GetElement
         super.setIncludeEdges(includeEdges);
     }
 
-    public abstract static class BaseBuilder<OP_TYPE extends GetEdges<SEED_TYPE>,
-            SEED_TYPE extends ElementSeed,
-            CHILD_CLASS extends BaseBuilder<OP_TYPE, SEED_TYPE, ?>>
-            extends GetElements.BaseBuilder<OP_TYPE, SEED_TYPE, Edge, CHILD_CLASS> {
-        protected BaseBuilder(final OP_TYPE op) {
-            super(op);
+    public abstract static class BaseBuilder<CHILD_CLASS extends BaseBuilder<?>>
+            extends GetElements.BaseBuilder<GetEdges, EdgeSeed, Edge, CHILD_CLASS> {
+        public BaseBuilder() {
+            super(new GetEdges());
         }
     }
 
-    public static final class Builder<OP_TYPE extends GetEdges<SEED_TYPE>, SEED_TYPE extends ElementSeed>
-            extends BaseBuilder<OP_TYPE, SEED_TYPE, Builder<OP_TYPE, SEED_TYPE>> {
+//    public static final class Builder<OP_TYPE extends GetEdges>
+//            extends BaseBuilder<OP_TYPE, Builder<OP_TYPE>> {
+//
+//        protected Builder(final OP_TYPE op) {
+//            super(op);
+//        }
+//
+//        public Builder() {
+//            super((OP_TYPE) new GetEdges());
+//        }
+//
+//        @Override
+//        protected Builder<OP_TYPE> self() {
+//            return this;
+//        }
+//    }
 
-        protected Builder(final OP_TYPE op) {
-            super(op);
-        }
-
+    public static final class Builder extends BaseBuilder<Builder> {
         @Override
-        protected Builder<OP_TYPE, SEED_TYPE> self() {
+        protected Builder self() {
             return this;
         }
     }

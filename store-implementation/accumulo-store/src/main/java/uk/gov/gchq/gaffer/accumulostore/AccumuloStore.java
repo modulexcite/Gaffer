@@ -78,6 +78,7 @@ import uk.gov.gchq.gaffer.operation.impl.add.AddElements;
 import uk.gov.gchq.gaffer.operation.impl.get.GetAdjacentEntitySeeds;
 import uk.gov.gchq.gaffer.operation.impl.get.GetAllElements;
 import uk.gov.gchq.gaffer.operation.impl.get.GetElements;
+import uk.gov.gchq.gaffer.operation.impl.get.GetEntities;
 import uk.gov.gchq.gaffer.operation.simple.hdfs.operation.AddElementsFromHdfs;
 import uk.gov.gchq.gaffer.operation.simple.spark.dataframe.GetDataFrameOfElements;
 import uk.gov.gchq.gaffer.operation.simple.spark.javardd.GetJavaRDDOfAllElements;
@@ -253,7 +254,7 @@ public class AccumuloStore extends Store {
     }
 
     @Override
-    protected OperationHandler<? extends GetAdjacentEntitySeeds, CloseableIterable<EntitySeed>> getAdjacentEntitySeedsHandler() {
+    protected OperationHandler<? extends GetEntities, CloseableIterable<EntitySeed>> getAdjacentEntitySeedsHandler() {
         return new GetAdjacentEntitySeedsHandler();
     }
 

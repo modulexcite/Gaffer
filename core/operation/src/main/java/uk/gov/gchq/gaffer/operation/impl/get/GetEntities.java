@@ -29,7 +29,7 @@ import uk.gov.gchq.gaffer.operation.data.ElementSeed;
  * @param <SEED_TYPE> the seed seed type
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetElements
  */
-public abstract class GetEntities<SEED_TYPE extends ElementSeed> extends GetElements<SEED_TYPE, Entity> {
+public class GetEntities<SEED_TYPE extends ElementSeed> extends GetElements<SEED_TYPE, Entity> {
     public GetEntities() {
         super();
     }

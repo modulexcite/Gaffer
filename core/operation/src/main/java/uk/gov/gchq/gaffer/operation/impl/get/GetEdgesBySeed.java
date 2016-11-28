@@ -32,7 +32,7 @@ import uk.gov.gchq.gaffer.operation.data.EdgeSeed;
  * @see uk.gov.gchq.gaffer.operation.impl.get.GetEdges
  */
 @Deprecated
-public class GetEdgesBySeed extends GetEdges<EdgeSeed> {
+public class GetEdgesBySeed extends GetEdges {
     public GetEdgesBySeed() {
         super();
     }
@@ -73,17 +73,17 @@ public class GetEdgesBySeed extends GetEdges<EdgeSeed> {
         return SeedMatchingType.EQUAL;
     }
 
-    public abstract static class BaseBuilder<CHILD_CLASS extends BaseBuilder<?>>
-            extends GetEdges.BaseBuilder<GetEdgesBySeed, EdgeSeed, CHILD_CLASS> {
-        public BaseBuilder() {
-            super(new GetEdgesBySeed());
-        }
-    }
-
-    public static final class Builder extends BaseBuilder<Builder> {
-        @Override
-        protected Builder self() {
-            return this;
-        }
-    }
+//    public abstract static class BaseBuilder<CHILD_CLASS extends BaseBuilder<?>>
+//            extends GetEdges.BaseBuilder<CHILD_CLASS> {
+//        public BaseBuilder() {
+//            super(new GetEdgesBySeed());
+//        }
+//    }
+//
+//    public static final class Builder extends BaseBuilder<Builder> {
+//        @Override
+//        protected Builder self() {
+//            return this;
+//        }
+//    }
 }
